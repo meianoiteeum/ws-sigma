@@ -1,5 +1,9 @@
 # Ws-Sigma
 
+## Requirements
+* Java 11
+* Maven
+
 ## Run project
 ``` shell script
 mvn spring-boot:run
