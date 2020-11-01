@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.Optional;
 
 @Service
-public class GenericServiceImpl <E extends BaseEntity<ID>, ID extends Serializable> implements GenericService<E,ID> {
+public abstract class GenericServiceImpl <E extends BaseEntity<ID>, ID extends Serializable> implements GenericService<E,ID> {
 
     @Autowired
     private JpaRepository<E,ID> repository;
