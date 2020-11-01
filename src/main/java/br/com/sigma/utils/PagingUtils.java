@@ -6,7 +6,7 @@ import org.springframework.data.domain.Sort;
 public final class PagingUtils {
 
     private static final int PAGE = 0;
-    private static final int COUNT = 99;
+    private static final int COUNT = 50;
 
     private PagingUtils() {
     }
