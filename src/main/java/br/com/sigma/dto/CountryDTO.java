@@ -5,6 +5,8 @@ import br.com.sigma.utils.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 @Getter
@@ -13,8 +15,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CountryDTO extends BaseDTO {
+
+    @Positive
     private Integer id;
 
+    @NotBlank
     private String name;
 }
 
