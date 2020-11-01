@@ -37,8 +37,8 @@ public class CompanyServiceImpl extends GenericServiceImpl<Company,Integer> impl
         if(responseEntity.getStatusCode() == HttpStatus.NOT_FOUND)
             return responseEntity;
 
-        super.saveOrUpdate(mapper.convertToEntity(dto));
-        return Response.ok();
+        Company company = super.saveOrUpdate(mapper.convertToEntity(dto));
+        return Response.created(mapper.convertToDto(company));
     }
 
     @Override

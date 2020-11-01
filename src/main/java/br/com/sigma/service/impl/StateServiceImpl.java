@@ -37,8 +37,8 @@ public class StateServiceImpl extends GenericServiceImpl<State,Integer> implemen
         if(responseEntity.getStatusCode() == HttpStatus.NOT_FOUND)
             return responseEntity;
 
-        super.saveOrUpdate(mapper.convertToEntity(dto));
-        return Response.ok();
+        State state = super.saveOrUpdate(mapper.convertToEntity(dto));
+        return Response.created(mapper.convertToDto(state));
     }
 
     @Override

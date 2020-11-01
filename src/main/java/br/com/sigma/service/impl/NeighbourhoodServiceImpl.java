@@ -36,8 +36,8 @@ public class NeighbourhoodServiceImpl extends GenericServiceImpl<Neighbourhood,I
         ResponseEntity responseEntity = cityService.read(dto.getCityId());
         if(responseEntity.getStatusCode() == HttpStatus.NOT_FOUND)
             return responseEntity;
-        super.saveOrUpdate(mapper.convertToEntity(dto));
-        return Response.ok();
+        Neighbourhood neighbourhood = super.saveOrUpdate(mapper.convertToEntity(dto));
+        return Response.created(mapper.convertToDto(neighbourhood));
     }
 
     @Override

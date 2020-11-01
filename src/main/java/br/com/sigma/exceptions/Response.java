@@ -5,6 +5,14 @@ import org.springframework.http.ResponseEntity;
 
 public class Response {
 
+    public static ResponseEntity created(Object object){
+        ResponseError response = ResponseError.builder()
+                .status(true)
+                .object(object)
+                .build();
+        return new ResponseEntity(response, HttpStatus.CREATED);
+    }
+
     public static ResponseEntity ok(){
         ResponseError response = ResponseError.builder()
                 .status(true)
@@ -15,7 +23,7 @@ public class Response {
     public static ResponseEntity duplicated(String message){
         ResponseError response = ResponseError.builder()
                 .status(false)
-                .message(message)
+                .object(message)
                 .build();
         return new ResponseEntity(response, HttpStatus.CONFLICT);
     }
@@ -23,7 +31,7 @@ public class Response {
     public static ResponseEntity notFound(String message){
         ResponseError response = ResponseError.builder()
                 .status(false)
-                .message(message)
+                .object(message)
                 .build();
         return new ResponseEntity(response, HttpStatus.NOT_FOUND);
     }
@@ -31,7 +39,7 @@ public class Response {
     public static ResponseEntity forbidden(String message){
         ResponseError response = ResponseError.builder()
                 .status(false)
-                .message(message)
+                .object(message)
                 .build();
         return new ResponseEntity(response, HttpStatus.FORBIDDEN);
     }

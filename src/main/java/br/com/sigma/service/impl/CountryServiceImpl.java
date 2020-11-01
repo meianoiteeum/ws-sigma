@@ -28,8 +28,8 @@ public class CountryServiceImpl extends GenericServiceImpl<Country,Integer> impl
 
     @Override
     public ResponseEntity create(CountryDTO dto) {
-        super.saveOrUpdate(mapper.convertToEntity(dto));
-        return Response.ok();
+        Country country = super.saveOrUpdate(mapper.convertToEntity(dto));
+        return Response.created(mapper.convertToDto(country));
     }
 
     @Override

@@ -36,8 +36,8 @@ public class CityServiceImpl extends GenericServiceImpl<City,Integer> implements
         ResponseEntity responseEntity = stateService.read(dto.getStateId());
         if(responseEntity.getStatusCode() == HttpStatus.NOT_FOUND)
             return responseEntity;
-        super.saveOrUpdate(mapper.convertToEntity(dto));
-        return Response.ok();
+        City city = super.saveOrUpdate(mapper.convertToEntity(dto));
+        return Response.created(mapper.convertToDto(city));
     }
 
     @Override
