@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Transactional
 public interface ListRest<E extends BaseEntity<ID>, M extends FilterMapper<E,F>, F, D, ID>{
 
-    @GetMapping("/getAll")
-    @ApiOperation(value = "ListAll and filter")
+    @GetMapping
+    @ApiOperation(value = "List All")
     @DefaultParamsPagedList
     default Page<D> getAll(Integer page, Integer count, String order, String sortProperty, F filterDTO){
 
